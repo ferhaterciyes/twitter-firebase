@@ -1,8 +1,8 @@
 import { BiDoorOpen } from "react-icons/bi";
 import { navSections } from "./../constant";
-
+import { signOut } from "firebase/auth";
+import { auth } from "./../firebase/confic";
 const Nav = ({ user }) => {
-
   return (
     <div className="flex flex-col justify-between items-end px-2  py-4">
       <div>
@@ -27,13 +27,16 @@ const Nav = ({ user }) => {
         ) : (
           <div className="flex flex-col gap-5 ">
             <div className="flex gap-2 items-center">
-                <img className="w-12 h-12 rounded-full" src={user.photoURL}/>
-                <p className="max-md:hidden">{user.displayName}</p>
+              <img className="w-12 h-12 rounded-full" src={user.photoURL} />
+              <p className="max-md:hidden">{user.displayName}</p>
             </div>
-                <button className="flex justify-center gap-2 items-center p-1 bg-gray-700 rounded text-2xl md:text-[15px]  ">
-                    <BiDoorOpen />
-                    <span className="max-md:hidden">Çıkış Yap</span>
-                </button>
+            <button
+              onClick={() => signOut(auth)}
+              className="flex justify-center gap-2 items-center p-1 bg-gray-700 rounded text-2xl md:text-[15px]  "
+            >
+              <BiDoorOpen />
+              <span className="max-md:hidden">Çıkış Yap</span>
+            </button>
           </div>
         )}
       </div>

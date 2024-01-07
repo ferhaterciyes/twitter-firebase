@@ -1,10 +1,10 @@
-const Spinner = () => {
+const Spinner = ({style}) => {
   return (
 
       <svg
         aria-hidden="true"
         role="status"
-        className="inline w-4 h-4 text-white animate-spin"
+        className={`inline w-4 h-4 text-white animate-spin ${style}`}
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

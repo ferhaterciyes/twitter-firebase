@@ -37,7 +37,9 @@ const Main = ({ user }) => {
       <Form user={user} />
 
       {/* twittleri listele */}
-      {!tweets ? <Spinner /> : tweets.map((tweet)=>(
+      {!tweets? <div className="flex items-center justify-center my-14 ">
+        <Spinner style={"w-6 h-6  text-blue-600"} />
+      </div>: tweets.map((tweet)=>(
         <Post  key={tweet.id} tweet={tweet}/>
       ))}
     </main>
